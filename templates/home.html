@@ -1,0 +1,13 @@
+{{define "content"}}
+
+
+<div class="border rounded-xl p-8 m-8">
+
+        <h1 class="text-2xl text-gray-800 dark:text-gray-300 pb-1">Pages:</h1>
+
+        {{range $p := $.Pages }}
+              <a href="{{$p.URL}}">{{$p.Title}}</a><br>
+        {{end}}
+</div>
+
+{{end}}
