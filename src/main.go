@@ -44,7 +44,7 @@ func FrontView(w http.ResponseWriter, r *http.Request) {
 			Pages []Page
 		}{
 			Title: "Pages",
-			Pages: Store.Pages,
+			Pages: Store.TopPages(),
 		}
 		RenderTemplate(w, data, "layout.html", "home.html")
 
@@ -60,7 +60,7 @@ func FrontView(w http.ResponseWriter, r *http.Request) {
 			Results []Page
 			Keyword string
 		}{
-			Title:   "Demo",
+			Title:   "Search",
 			Results: []Page{},
 			Keyword: kw,
 		}
@@ -83,19 +83,32 @@ func PageView(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == "GET" {
 
-		p := Page{}
+		path := NewPath(r.URL.Path)
 
-		err := p.Load(r.URL.String())
-		if err != nil {
-			// return
+		fmt.Println(r.URL.Query().Has("edit"))
+
+		page, found := Store.FindPage(path)
+
+		if !found {
+			page = &Page{}
+			page.URL = path
+			page.Title = r.URL.Path
 		}
 
 		data := struct {
-			Title string
-			Page  Page
+			Title    string
+			Page     Page
+			Children []Page
+			Parent   *Page
+			New      bool
+			Edit     bool
 		}{
-			Title: "Demo",
-			Page:  p,
+			Title:    r.URL.Path,
+			Page:     *page,
+			Children: Store.FindChildren(*page),
+			Parent:   Store.FindParent(*page),
+			New:      !found,
+			Edit:     r.URL.Query().Has("edit"),
 		}
 		RenderTemplate(w, data, "layout.html", "page.html")
 
@@ -103,7 +116,7 @@ func PageView(w http.ResponseWriter, r *http.Request) {
 
 		// save data
 		n := Page{}
-		n.URL = r.URL.String()
+		n.URL = NewPath(r.URL.String())
 		n.Title = r.FormValue("title")
 		n.Content = r.FormValue("content")
 		n.Save()

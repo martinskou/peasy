@@ -3,10 +3,34 @@
 
 <div class="border rounded-xl p-8 m-8">
 
-    <h1 class="text-2xl text-gray-800 dark:text-gray-300 pb-1">{{.Page.Title}}</h1>
+    {{ if .Edit }}
 
-    <div>{{.Page.Content}}</div>
         
+
+    {{ else }}
+
+        <h1 class="text-2xl text-gray-800 dark:text-gray-300 pb-1">{{.Page.Title}}</h1>
+
+        <div>{{.Page.Content}}</div>
+
+        <h1 class="text-2xl text-gray-800 dark:text-gray-300 pb-1">Child pages:</h1>
+
+        {{range $p := $.Children }}
+            <a href="{{$p.URL}}">{{$p.Title}}</a><br>
+        {{end}}
+
+        {{if $.Parent}}
+            <h1 class="text-2xl text-gray-800 dark:text-gray-300 pb-1">Parent page:</h1>
+
+            <a href="{{$.Parent.URL}}">{{$.Parent.Title}}</a><br>
+        {{end}}
+
+
+        <a href="{{$.Page.URL.ToLink}}?edit">Edit</a><br>
+
+    {{end}}
+
+
 </div>
 
 {{end}}
