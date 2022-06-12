@@ -10,10 +10,6 @@ function ctrl_c() {
 mkdir -p bin
 
 while true; do
-    rm ./assets/styledist.css
-    cd dependencies
-    npx tailwindcss -i ../assets/style.css -o ../assets/styledist.css
-    cd ..
     go build -o bin/server src/* 
     ./bin/server &
     PID=$!

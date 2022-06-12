@@ -1,35 +1,31 @@
 {{define "content"}}
 
 
-<div class="border rounded-xl p-8 m-8">
+<div class="">
 
-    {{ if .Edit }}
+    <h1 class="">{{.Page.Title}}</h1>
+    <br>
 
-        
+    Content:<br>
+    <div>{{.Page.Content}}</div>
+    <br>
+    <br>
 
-    {{ else }}
-
-        <h1 class="text-2xl text-gray-800 dark:text-gray-300 pb-1">{{.Page.Title}}</h1>
-
-        <div>{{.Page.Content}}</div>
-
-        <h1 class="text-2xl text-gray-800 dark:text-gray-300 pb-1">Child pages:</h1>
-
-        {{range $p := $.Children }}
-            <a href="{{$p.URL}}">{{$p.Title}}</a><br>
-        {{end}}
-
-        {{if $.Parent}}
-            <h1 class="text-2xl text-gray-800 dark:text-gray-300 pb-1">Parent page:</h1>
-
-            <a href="{{$.Parent.URL}}">{{$.Parent.Title}}</a><br>
-        {{end}}
-
-
-        <a href="{{$.Page.URL.ToLink}}?edit">Edit</a><br>
-
+    <h4>Subpages:</h4>
+    <ul class="list-group">
+    {{range $p := $.Children }}
+        <li class="list-group-item list-group-item-action">
+            <a href="{{$p.URL.ToLink}}">{{$p.Title}}</a><br>
+        </li>
     {{end}}
+    </ul>
+    <br>
+    <br>
 
+    {{if $.Parent}}
+        <h4>Parent:</h4>
+        <a href="{{$.Parent.URL.ToLink}}">{{$.Parent.Title}}</a><br>
+    {{end}}
 
 </div>
 

@@ -1,8 +1,5 @@
-body {
+
+.btn-primary {
+    --bs-btn-bg:#0d5edd;
+    --xbs-btn-border-color: #0a3ead;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind variants;
-

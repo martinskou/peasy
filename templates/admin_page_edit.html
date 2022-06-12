@@ -1,0 +1,28 @@
+{{define "content"}}
+
+<form action="/admin/page/save/" method="post">
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Title:</label> 
+        <input type="text" name="title" value="{{.Page.Title}}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="url" class="form-label">URL:</label> 
+        <input type="text" name="url" value="{{.Page.URL.ToLink}}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="id" class="form-label">Id:</label> 
+        <input type="text" name="id" value="{{.Page.Id}}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="content" class="form-label">Content:</label> 
+        <textarea name="content" class="form-control">{{.Page.Content}}</textarea>
+    </div>
+
+    <button type='submit' class='btn btn-primary mb-3'>Save</button>
+</form>
+
+{{end}}
