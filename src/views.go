@@ -75,6 +75,7 @@ func PageView(w http.ResponseWriter, r *http.Request) {
 			Parent   *Page
 			New      bool
 			Edit     bool
+			Top      []Page
 		}{
 			Title:    r.URL.Path,
 			Page:     *page,
@@ -82,6 +83,7 @@ func PageView(w http.ResponseWriter, r *http.Request) {
 			Parent:   Store.FindParent(*page),
 			New:      !found,
 			Edit:     r.URL.Query().Has("edit"),
+			Top:      Store.TopPages(),
 		}
 		RenderTemplate(w, data, "layout.html", "page.html")
 

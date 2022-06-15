@@ -142,3 +142,30 @@
 2022/06/12 11:21:07 Starting server at http://0.0.0.0:3000
 2022/06/12 11:21:33 Loaded 2 Pages
 2022/06/12 11:21:33 Starting server at http://0.0.0.0:3000
+2022/06/12 16:58:59 Loaded 3 Pages
+2022/06/12 16:58:59 Starting server at http://0.0.0.0:3000
+2022/06/12 17:05:24 Loaded 3 Pages
+2022/06/12 17:05:24 Starting server at http://0.0.0.0:3000
+2022/06/12 17:08:33 Loaded 3 Pages
+2022/06/12 17:08:33 Starting server at http://0.0.0.0:3000
+2022/06/12 17:09:06 Loaded 3 Pages
+2022/06/12 17:09:06 Starting server at http://0.0.0.0:3000
+2022/06/12 17:09:34 Loaded 3 Pages
+2022/06/12 17:09:34 Starting server at http://0.0.0.0:3000
+2022/06/12 17:10:59 Loaded 3 Pages
+2022/06/12 17:10:59 Starting server at http://0.0.0.0:3000
+2022/06/12 17:11:05 Loaded 3 Pages
+2022/06/12 17:11:05 Starting server at http://0.0.0.0:3000
+2022/06/12 17:11:09 Loaded 3 Pages
+2022/06/12 17:11:09 Starting server at http://0.0.0.0:3000
+2022/06/12 17:11:30 Loaded 3 Pages
+2022/06/12 17:11:30 Starting server at http://0.0.0.0:3000
+2022/06/12 17:15:15 Loaded 3 Pages
+2022/06/12 17:15:15 Starting server at http://0.0.0.0:3000
+2022/06/12 17:16:05 Loaded 3 Pages
+2022/06/12 17:16:05 Starting server at http://0.0.0.0:3000
+2022/06/12 17:16:08 Error executing template : template: layout.html:35:29: executing "layout.html" at <$.Top>: can't evaluate field Top in type struct { Title string; Page main.Page; Pages []main.Page; NewPageForm main.Form }
+2022/06/12 17:16:54 Loaded 3 Pages
+2022/06/12 17:16:54 Starting server at http://0.0.0.0:3000
+2022/06/12 17:18:50 Loaded 3 Pages
+2022/06/12 17:18:50 Starting server at http://0.0.0.0:3000

@@ -11,7 +11,8 @@
     <br>
     <br>
 
-    <h4>Subpages:</h4>
+
+    <p class="h6">Subpages:</p>
     <ul class="list-group">
     {{range $p := $.Children }}
         <li class="list-group-item list-group-item-action">
@@ -23,7 +24,7 @@
     <br>
 
     {{if $.Parent}}
-        <h4>Parent:</h4>
+        <p class="h6">Parent:</p>
         <a href="{{$.Parent.URL.ToLink}}">{{$.Parent.Title}}</a><br>
     {{end}}
 

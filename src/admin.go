@@ -34,11 +34,13 @@ func AdminDashboardView(w http.ResponseWriter, r *http.Request) {
 			Page        Page
 			Pages       []Page
 			NewPageForm Form
+			Top         []Page
 		}{
 			Title:       "Pages",
 			Page:        Page{},
 			Pages:       Store.TopPages(),
 			NewPageForm: npf,
+			Top:         Store.TopPages(),
 		}
 		RenderTemplate(w, data, "layout.html", "admin_dashboard.html")
 
